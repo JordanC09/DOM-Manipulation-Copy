@@ -64,7 +64,7 @@ input{
     object-fit: cover;
     border-radius: 15px;
 }
-.remove{
+#getrid{
     background-color: aqua;
 }
 
