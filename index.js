@@ -1,23 +1,19 @@
 const DOMSelectors = {
-    
-    
   form: document.querySelector(".form"),
-  
+
   container: document.querySelector(".container"),
   card: document.querySelector(".card"),
   delete: document.querySelector(".getrid"),
   text: document.getElementById("txt"),
-  
-  
-  
 
   NameInput: document.getElementById("name-input"),
   DescInput: document.getElementById("Desc-input"),
   ImageInput: document.getElementById("Image-input"),
   ColorInput: document.getElementById("Color-input"),
-  };
+};
 console.log(DOMSelectors.text);
 let id = 0;
+let buttonid = 0;
 
 function makecard() {
   let name = DOMSelectors.NameInput.value;
@@ -25,9 +21,9 @@ function makecard() {
   let image = DOMSelectors.ImageInput.value;
   let color = DOMSelectors.ColorInput.value;
   id += 1;
+  buttonid += 1;
 
   DOMSelectors.container.insertAdjacentHTML(
-    
     "beforeend",
 
     `
@@ -35,36 +31,31 @@ function makecard() {
       <h2 class = "card-header"> ${name} </h2>
       <img class = card-image src="${image}" alt="image made" class = "card-image">
       <p>${desc}</p>
-      <button class = "getrid" id = "${id}">Return to Ball <img class = "ball" src="images/ball.png" alt="ball"></button>
+      <button class = "getrid" id = "${buttonid}">Return to Ball <img class = "ball" src="images/ball.png" alt="ball"></button>
     </div>
 
     
     `
   );
-  
+
   //let cardcolor = document.getElementById(`#${id}`);
   //cardcolor.style.backgroundColor = color;
 }
 
-function clearfields(){
+function clearfields() {
   DOMSelectors.NameInput.value = "";
   DOMSelectors.DescInput.value = "";
   DOMSelectors.ImageInput.value = "";
   DOMSelectors.ColorInput.value = "";
 }
 
-function eliminate(number) {
-  let bruh = document.getElementById(`${number}`);
-  bruh.addEventListener("click", function (){
-    
+function eliminate(number, hush) {
+  let bruh = document.getElementById(`${hush}`);
+  bruh.addEventListener("click", function () {
     let crook = document.getElementById(`${number}`);
     crook.remove();
   });
-  
-
-  
 }
-
 
 /*DOMSelectors.button.addEventListener("click", function (event) {
   console.log(event.target.parentElement);
@@ -75,15 +66,11 @@ DOMSelectors.form.addEventListener("submit", function (event) {
   //console.log(document.querySelector("input").value);
   makecard();
   clearfields();
-  eliminate(id);
-  
-
+  eliminate(id, buttonid);
 });
-
-
 
 // DOMSelectors.delete.addEventListener("click", function (event){
 //   event.preventDefault();
 //   eliminate();
-  
+
 // })
