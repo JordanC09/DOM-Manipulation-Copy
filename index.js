@@ -5,7 +5,9 @@ const DOMSelectors = {
   
   container: document.querySelector(".container"),
   card: document.querySelector(".card"),
-  button: document.querySelector("#getrid"),
+  delete: document.querySelector(".getrid"),
+  text: document.getElementById("txt"),
+  
   
   
 
@@ -22,22 +24,26 @@ function makecard() {
   let desc = DOMSelectors.DescInput.value;
   let image = DOMSelectors.ImageInput.value;
   let color = DOMSelectors.ColorInput.value;
+  id += 1;
 
   DOMSelectors.container.insertAdjacentHTML(
+    
     "beforeend",
 
     `
-    <div class = "card" id = "${id}">
+    <div class = "card" id = "${id}" style = "background-color: ${color};">
       <h2 class = "card-header"> ${name} </h2>
       <img class = card-image src="${image}" alt="image made" class = "card-image">
       <p>${desc}</p>
-      <button id ="getrid">Remove</button>
+      <button class = "getrid" id = "${id}">Return to Ball <img class = "ball" src="images/ball.png" alt="ball"></button>
     </div>
+
     
     `
   );
-  let cardcolor = document.getElementById(id);
-  cardcolor.style.backgroundColor = color;
+  
+  //let cardcolor = document.getElementById(`#${id}`);
+  //cardcolor.style.backgroundColor = color;
 }
 
 function clearfields(){
@@ -47,10 +53,16 @@ function clearfields(){
   DOMSelectors.ColorInput.value = "";
 }
 
-function eliminate(event){
+function eliminate(number) {
+  let bruh = document.getElementById(`${number}`);
+  bruh.addEventListener("click", function (){
+    
+    let crook = document.getElementById(`${number}`);
+    crook.remove();
+  });
   
-  event.preventDefault();
-  document.querySelector(".card").remove();
+
+  
 }
 
 
@@ -63,9 +75,15 @@ DOMSelectors.form.addEventListener("submit", function (event) {
   //console.log(document.querySelector("input").value);
   makecard();
   clearfields();
+  eliminate(id);
+  
+
 });
 
-DOMSelectors.button.addEventListener("click", function (event){
-  event.preventDefault();
-  eliminate();
-})
+
+
+// DOMSelectors.delete.addEventListener("click", function (event){
+//   event.preventDefault();
+//   eliminate();
+  
+// })

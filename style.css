@@ -64,8 +64,58 @@ input{
     object-fit: cover;
     border-radius: 15px;
 }
-#getrid{
-    background-color: aqua;
+.ball{
+    height: auto;
+    width: 25px;
+}
+.getrid{
+    background-color: white;
+    transition: 0.5s;
+}
+
+.getrid:hover{
+    transform: scale(1.15);
+}
+
+
+
+
+@keyframes scale{
+    0%{
+        transform: scale(1.25,1.25);
+        
+    }
+    25%{
+        transform: scale(1, 1);
+    }
+    50%{
+        transform: scale(0.5,0.5);
+    }
+    75%{
+        transform: scale(1, 1);
+    }
+    100%{
+        transform: scale(1.25, 1.25);
+    }
+
+}
+.btn{
+    transition: 0.5s;
+    background-color: rgba(250,107,98,255);
+}
+.btn:hover{
+    
+    animation: scale 1s infinite linear;
+    animation-delay: 0.15s;
+    
+}
+.pokeball-animate{
+    height: 25px;
+    width: auto;
+}
+.throw{
+    height: 25px;
+    width: auto;
 }
 
 
@@ -73,9 +123,42 @@ input{
 
 
 
-
-
-
+#Image-input{
+    transition: 0.5s;
+}
+#Image-input:hover{
+    transform: scale(1.1);
+}
+#Image-input:focus{
+    background-color: rgba(248,209,56,255);
+}
+#name-input{
+    transition: 0.5s;
+}
+#name-input:hover{
+    transform: scale(1.1);
+}
+#name-input:focus{
+    background-color: rgba(248,209,56,255);
+}
+#Color-input{
+    transition: 0.5s;
+}
+#Color-input:hover{
+    transform: scale(1.1);
+}
+#Color-input:focus{
+    background-color: rgba(248,209,56,255);
+}
+#Desc-input{
+    transition: 0.5s;
+}
+#Desc-input:hover{
+    transform: scale(1.1);
+}
+#Desc-input:focus{
+    background-color: rgba(248,209,56,255);
+}
 
 
 
