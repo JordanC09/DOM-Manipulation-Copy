@@ -27,11 +27,11 @@ function makecard() {
     "beforeend",
 
     `
-    <div class = "card" id = "${id}" style = "background-color: ${color};">
+    <div class = "card" id = "card-${id}" style = "background-color: ${color};">
       <h2 class = "card-header"> ${name} </h2>
       <img class = card-image src="${image}" alt="image made" class = "card-image">
       <p>${desc}</p>
-      <button class = "getrid" id = "${buttonid}">Return to Ball <img class = "ball" src="images/ball.png" alt="ball"></button>
+      <button class = "getrid" id = "bt-${buttonid}">Return to Ball <img class = "ball" src="images/ball.png" alt="ball"></button>
     </div>
 
     
@@ -49,10 +49,10 @@ function clearfields() {
   DOMSelectors.ColorInput.value = "";
 }
 
-function eliminate(number, hush) {
-  let bruh = document.getElementById(`${hush}`);
+function eliminate(number, button) {
+  let bruh = document.getElementById(`bt-${button}`);
   bruh.addEventListener("click", function () {
-    let crook = document.getElementById(`${number}`);
+    let crook = document.getElementById(`card-${number}`);
     crook.remove();
   });
 }
